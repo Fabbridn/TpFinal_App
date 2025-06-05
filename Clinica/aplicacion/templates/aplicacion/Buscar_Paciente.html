@@ -1,0 +1,26 @@
+
+{% extends "Buscar_Paciente.html" %}
+
+{% block title %}Buscar Pacientes{% endblock %}
+
+{% block header %}
+    <h1>Buscar Pacientes</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="GET">
+        <input type="text" name="nombre" placeholder="Buscar por nombre">
+        <input type="text" name="apellido" placeholder="Buscar por apellido">
+
+        {% csrf_token %}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if resultados %}
+        <ul>
+            {% for paciente in resultados %}
+                <li>{{ paciente.nombre }} - {{ paciente.apellido }} - {{ paciente.edad }} años</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,62 @@
+
+{% extends 'clinica/base.html' %}
+
+{% block title %}Buscar Habitación{% endblock %}
+
+{% block header %}
+    <h1>Buscar Habitación</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="GET">
+        <input type="text" name="numero" placeholder="Número de habitación" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if habitaciones %}
+        <ul>
+            {% for habitacion in habitaciones %}
+                <li>Habitación {{ habitacion.numero }} - Estado: {{ habitacion.estado }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontró la habitación solicitada.</p>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <p>&copy; 2025 - Clinica Modelo</p>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Formulario de búsqueda de habitación listo');
+        });
+    </script>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block extra_content %}
+    <p>Si necesita ayuda, contáctese con el administrador.</p>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="sidebar">
+        <h2>Opciones</h2>
+        <ul>
+            <li><a href="{% url 'clinica:buscar_habitacion' %}">Buscar Habitación</a></li>
+        </ul>
+    </div>
+{% endblock %}

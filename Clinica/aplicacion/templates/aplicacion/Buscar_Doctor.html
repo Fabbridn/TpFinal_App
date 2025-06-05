@@ -1,0 +1,73 @@
+
+{% extends 'clinica/base.html' %}
+
+{% block title %}Buscar Doctor{% endblock %}
+
+{% block header %}
+    <h1>Buscar Doctor</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="GET">
+        <input type="text" name="nombre" placeholder="Nombre del doctor" required>
+        <input type="text" name="apellido" placeholder="Apellido del doctor" required>
+        <input type="text" name="especialidad" placeholder="Especialidad del doctor" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if doctores %}
+        <ul>
+            {% for doctor in doctores %}
+                <li>{{ doctor.nombre }} - {{ doctor.apellido }} - {{ doctor.especialidad }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron doctores.</p>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <p>&copy; 2025 - Clinica Modelo</p>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Formulario de búsqueda de doctor listo');
+        });
+    </script>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block extra_content %}
+    <p>Si necesita ayuda, contáctese con el administrador.</p>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="sidebar">
+        <h2>Opciones</h2>
+        <ul>
+            <li><a href="{% url 'clinica:Buscar_Doctor' %}">Buscar Doctor</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block navigation %}
+    <nav>
+        <ul>
+            <li><a href="{% url 'clinica:inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'clinica:Buscar_Doctor' %}">Buscar Doctor</a></li>
+        </ul>
+    </nav>
+{% endblock %}
