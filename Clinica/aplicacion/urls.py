@@ -11,4 +11,8 @@ urlpatterns = [
     path('agregar_habitacion/', views.Agregar_Habitacion, name='agregar_habitacion'),
     path('buscar_habitacion/', views.Buscar_Habitacion, name='buscar_habitacion'),
     path('', views.inicio, name='inicio'),
+    path('turnos/', views.turnos, name='turnos'),
+    path('nosotros/', views.nosotros, name='nosotros'),
+    path('contacto/', views.contacto, name='contacto'),
+    path('base/', views.base, name='base')
 ]

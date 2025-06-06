@@ -23,8 +23,10 @@
         <ul>
             {% for doctor in resultados %}
                 <li>{{ doctor.nombre }} - {{ doctor.apellido }} - {{ doctor.especialidad }}</li>
-            {% empty %} 
+            {% empty %}
+            {% if resultados is empty %}
                 <li>No se encontraron resultados.</li>
+            {% endif %}
             {% endfor %}
         </ul>
     {% endif %}
