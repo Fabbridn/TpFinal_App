@@ -21,4 +21,5 @@ from django.urls import inlcude
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('app/', include('aplicacion.urls')),
+
 ]

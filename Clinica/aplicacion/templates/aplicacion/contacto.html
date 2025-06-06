@@ -1,0 +1,54 @@
+{% extends "aplicacion/index.html" %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block header %}
+    <h1>Contacto</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu email" required>
+        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock %}
+
+{% block footer %}
+    <p>&copy; 2025 - Medilab - Todos los derechos reservados</p>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Formulario de contacto listo');
+        });
+    </script>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block extra_content %}
+    <p>Si necesita ayuda, contáctese con el administrador.</p>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="sidebar">
+        <h2>Opciones</h2>
+        <ul>
+            <li><a href="{% url 'contacto' %}">Contacto</a></li>
+        </ul>
+    </div>
+{% endblock %}

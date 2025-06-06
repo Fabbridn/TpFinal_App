@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.shortcuts import render
 from . import render
 from django.shortcuts import render
-from .models import Doctor, Paciente, Habitacion
-from . forms import DoctorForm, PacienteForm, HabitacionForm
+from .models import *
+from . forms import *
 
 
 def inicio(request):
@@ -15,6 +15,10 @@ def Agregar_Doctor(request):
     if request.method == "POST":
         form = DoctorForm(request.POST)
         if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            apellido = form.cleaned_data['apellido']
+            especialidad = form.cleaned_data['especialidad']
+            legajo = form.cleaned_data['legajo']
             form.save()
     else:
         form = DoctorForm()
@@ -31,6 +35,10 @@ def Agregar_Paciente(request):
     if request.method == "POST":
         form = PacienteForm(request.POST)
         if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            apellido = form.cleaned_data['apellido']
+            edad = form.cleaned_data['edad']
+            historia = form.cleaned_data['historia']
             form.save()
     else:
         form = PacienteForm()
@@ -46,6 +54,9 @@ def Agregar_Habitacion(request):
     if request.method == "POST":
         form = HabitacionForm(request.POST)
         if form.is_valid():
+            numero = form.cleaned_data['numero']
+            tipo = form.cleaned_data['tipo']
+            disponible = form.cleaned_data['disponible']
             form.save()
     else:
         form = HabitacionForm()
@@ -58,13 +69,57 @@ def Buscar_Habitacion(request):
 
 
 def turnos(request):
-    return render(request, "aplicacion/turnos.html")
+    if request.method == "POST":
+        form = TurnoForm(request.POST)
+        if form.is_valid():
+            paciente = form.cleaned_data['paciente']
+            doctor = form.cleaned_data['doctor']
+            fecha = form.cleaned_data['fecha']
+            form.save()
+    else:
+        form = TurnoForm()
+    return render(request, "aplicacion/turnos.html", {"form": form})
 
 def contacto(request):
+    if request.method == "POST":
+        nombre = request.POST.get('nombre')
+        email = request.POST.get('email')
+        mensaje = request.POST.get('mensaje')
+        # Aquí podrías guardar el mensaje en la base de datos o enviar un correo
+        print(f"Nombre: {nombre}, Email: {email}, Mensaje: {mensaje}")
     return render(request, "aplicacion/contacto.html")
 
 def nosotros(request):
+    if request.method == "POST":
+        nombre = request.POST.get('nombre')
+        email = request.POST.get('email')
+        mensaje = request.POST.get('mensaje')
+        # Aquí podrías guardar el mensaje en la base de datos o enviar un correo
+        print(f"Nombre: {nombre}, Email: {email}, Mensaje: {mensaje}")
     return render(request, "aplicacion/nosotros.html")
 
 def login(request):
-    return render(request, "aplicacion/login.html")
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        # Aquí podrías verificar las credenciales del usuario
+        if username == "admin" and password == "admin":  # Ejemplo simple de autenticación
+            return render(request, "aplicacion/admin.html")
+        else:
+            error_message = "Credenciales incorrectas"
+            return render(request, "aplicacion/login.html", {"error": error_message})
+
+def logout(request):
+    # Aquí podrías manejar la lógica de cierre de sesión, como limpiar la sesión del usuario
+    if request.method == "POST":
+        # Lógica de cierre de sesión
+        pass
+    return render(request, "aplicacion/logout.html")
+
+def admin(request):
+    # Aquí podrías manejar la lógica de administración, como mostrar estadísticas o gestionar usuarios
+    if request.method == "POST":
+        # Lógica de administración
+        pass
+    return render(request, "aplicacion/admin.html")
+
