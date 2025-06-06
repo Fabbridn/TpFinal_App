@@ -1,8 +1,5 @@
 from django.shortcuts import render
 
-from django.shortcuts import render
-from . import render
-from django.shortcuts import render
 from .models import *
 from . forms import *
 

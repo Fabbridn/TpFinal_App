@@ -1,4 +1,4 @@
-from django.urls import path, include  
+from django.urls import * 
 from . import views
 
 
@@ -19,8 +19,10 @@ urlpatterns = [
     
     path('nosotros/', views.nosotros, name='nosotros'),
     path('contacto/', views.contacto, name='contacto'),
-    """""
+    
+   
+]
+"""
     path('index/', views.index, name='index'),
     path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_view, name='logout'), """
-]
+    path('logout/', views.logout_view, name='logout'),"""
