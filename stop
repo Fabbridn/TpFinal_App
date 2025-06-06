@@ -1,0 +1,754 @@
+[1mdiff --git a/Clinica/aplicacion/templates/aplicacion/index.html b/Clinica/aplicacion/templates/aplicacion/index.html[m
+[1mindex 6200941..080c74a 100644[m
+[1m--- a/Clinica/aplicacion/templates/aplicacion/index.html[m
+[1m+++ b/Clinica/aplicacion/templates/aplicacion/index.html[m
+[36m@@ -259,6 +259,7 @@[m
+               <h3>Jason Davis</h3>[m
+               <p>Doctor</p>[m
+               <ul class="list-inline"></ul>[m
+[32m+[m[32m              <li><a href="#"><i class="fa fa-google-plus"></i>jason@clinicamodelo.com</a></li>[m
+             </div>[m
+           </div>[m
+         </div>[m
+[36m@@ -443,13 +444,13 @@[m
+     </div>[m
+   </footer>[m
+   <!--/ footer-->[m
+[31m-[m
+[32m+[m[32m<!--/[m
+   <script src="{% static 'js/jquery.min.js' %}"></script>[m
+   <script src="{% static 'js/jquery.easing.min.js' %}"></script>[m
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>[m
+   <script src="{% static 'js/custom.js' %}"></script>[m
+   <script src="{% static 'contactform/contactform.js' %}"></script>[m
+[31m-[m
+[32m+[m[32m-->[m
+ </body>[m
+ [m
+ </html>[m
+[1mdiff --git "a/dise\303\261o/assets/favicon.ico" "b/dise\303\261o/assets/favicon.ico"[m
+[1mdeleted file mode 100644[m
+[1mindex 9356735..0000000[m
+Binary files "a/dise\303\261o/assets/favicon.ico" and /dev/null differ
+[1mdiff --git "a/dise\303\261o/assets/img/bg-mobile-fallback.jpg" "b/dise\303\261o/assets/img/bg-mobile-fallback.jpg"[m
+[1mdeleted file mode 100644[m
+[1mindex 4f853f5..0000000[m
+Binary files "a/dise\303\261o/assets/img/bg-mobile-fallback.jpg" and /dev/null differ
+[1mdiff --git "a/dise\303\261o/assets/mp4/bg.mp4" "b/dise\303\261o/assets/mp4/bg.mp4"[m
+[1mdeleted file mode 100644[m
+[1mindex 36fdff9..0000000[m
+Binary files "a/dise\303\261o/assets/mp4/bg.mp4" and /dev/null differ
+[1mdiff --git "a/dise\303\261o/css/styles.css" "b/dise\303\261o/css/styles.css"[m
+[1mdeleted file mode 100644[m
+[1mindex bdc0146..0000000[m
+[1m--- "a/dise\303\261o/css/styles.css"[m
+[1m+++ /dev/null[m
+[36m@@ -1,10968 +0,0 @@[m
+[31m-@charset "UTF-8";[m
+[31m-/*![m
+[31m-* Start Bootstrap - Coming Soon v6.0.7 (https://startbootstrap.com/theme/coming-soon)[m
+[31m-* Copyright 2013-2023 Start Bootstrap[m
+[31m-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-coming-soon/blob/master/LICENSE)[m
+[31m-*/[m
+[31m-/*![m
+[31m- * Bootstrap  v5.2.3 (https://getbootstrap.com/)[m
+[31m- * Copyright 2011-2022 The Bootstrap Authors[m
+[31m- * Copyright 2011-2022 Twitter, Inc.[m
+[31m- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)[m
+[31m- */[m
+[31m-:root {[m
+[31m-  --bs-blue: #0d6efd;[m
+[31m-  --bs-indigo: #6610f2;[m
+[31m-  --bs-purple: #6f42c1;[m
+[31m-  --bs-pink: #d63384;[m
+[31m-  --bs-red: #dc3545;[m
+[31m-  --bs-orange: #fd7e14;[m
+[31m-  --bs-yellow: #ffc107;[m
+[31m-  --bs-green: #198754;[m
+[31m-  --bs-teal: #20c997;[m
+[31m-  --bs-cyan: #0dcaf0;[m
+[31m-  --bs-black: #000;[m
+[31m-  --bs-white: #fff;[m
+[31m-  --bs-gray: #6c757d;[m
+[31m-  --bs-gray-dark: #343a40;[m
+[31m-  --bs-gray-100: #f8f9fa;[m
+[31m-  --bs-gray-200: #e9ecef;[m
+[31m-  --bs-gray-300: #dee2e6;[m
+[31m-  --bs-gray-400: #ced4da;[m
+[31m-  --bs-gray-500: #adb5bd;[m
+[31m-  --bs-gray-600: #6c757d;[m
+[31m-  --bs-gray-700: #495057;[m
+[31m-  --bs-gray-800: #343a40;[m
+[31m-  --bs-gray-900: #000000;[m
+[31m-  --bs-primary: #2a5555;[m
+[31m-  --bs-secondary: #6c757d;[m
+[31m-  --bs-success: #198754;[m
+[31m-  --bs-info: #0dcaf0;[m
+[31m-  --bs-warning: #ffc107;[m
+[31m-  --bs-danger: #dc3545;[m
+[31m-  --bs-light: #f8f9fa;[m
+[31m-  --bs-dark: #000000;[m
+[31m-  --bs-primary-rgb: 42, 85, 85;[m
+[31m-  --bs-secondary-rgb: 108, 117, 125;[m
+[31m-  --bs-success-rgb: 25, 135, 84;[m
+[31m-  --bs-info-rgb: 13, 202, 240;[m
+[31m-  --bs-warning-rgb: 255, 193, 7;[m
+[31m-  --bs-danger-rgb: 220, 53, 69;[m
+[31m-  --bs-light-rgb: 248, 249, 250;[m
+[31m-  --bs-dark-rgb: 0, 0, 0;[m
+[31m-  --bs-white-rgb: 255, 255, 255;[m
+[31m-  --bs-black-rgb: 0, 0, 0;[m
+[31m-  --bs-body-color-rgb: 0, 0, 0;[m
+[31m-  --bs-body-bg-rgb: 255, 255, 255;[m
+[31m-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";[m
+[31m-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;[m
+[31m-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));[m
+[31m-  --bs-body-font-family: DM Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;[m
+[31m-  --bs-body-font-size: 1rem;[m
+[31m-  --bs-body-font-weight: 400;[m
+[31m-  --bs-body-line-height: 1.5;[m
+[31m-  --bs-body-color: #000000;[m
+[31m-  --bs-body-bg: #fff;[m
+[31m-  --bs-border-width: 1px;[m
+[31m-  --bs-border-style: solid;[m
+[31m-  --bs-border-color: #dee2e6;[m
+[31m-  --bs-border-color-translucent: rgba(0, 0, 0, 0.175);[m
+[31m-  --bs-border-radius: 0.375rem;[m
+[31m-  --bs-border-radius-sm: 0.25rem;[m
+[31m-  --bs-border-radius-lg: 0.5rem;[m
+[31m-  --bs-border-radius-xl: 1rem;[m
+[31m-  --bs-border-radius-2xl: 2rem;[m
+[31m-  --bs-border-radius-pill: 50rem;[m
+[31m-  --bs-link-color: #2a5555;[m
+[31m-  --bs-link-hover-color: #224444;[m
+[31m-  --bs-code-color: #d63384;[m
+[31m-  --bs-highlight-bg: #fff3cd;[m
+[31m-}[m
+[31m-[m
+[31m-*,[m
+[31m-*::before,[m
+[31m-*::after {[m
+[31m-  box-sizing: border-box;[m
+[31m-}[m
+[31m-[m
+[31m-@media (prefers-reduced-motion: no-preference) {[m
+[31m-  :root {[m
+[31m-    scroll-behavior: smooth;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-body {[m
+[31m-  margin: 0;[m
+[31m-  font-family: var(--bs-body-font-family);[m
+[31m-  font-size: var(--bs-body-font-size);[m
+[31m-  font-weight: var(--bs-body-font-weight);[m
+[31m-  line-height: var(--bs-body-line-height);[m
+[31m-  color: var(--bs-body-color);[m
+[31m-  text-align: var(--bs-body-text-align);[m
+[31m-  background-color: var(--bs-body-bg);[m
+[31m-  -webkit-text-size-adjust: 100%;[m
+[31m-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);[m
+[31m-}[m
+[31m-[m
+[31m-hr {[m
+[31m-  margin: 1rem 0;[m
+[31m-  color: inherit;[m
+[31m-  border: 0;[m
+[31m-  border-top: 1px solid;[m
+[31m-  opacity: 0.25;[m
+[31m-}[m
+[31m-[m
+[31m-h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {[m
+[31m-  margin-top: 0;[m
+[31m-  margin-bottom: 0.5rem;[m
+[31m-  font-family: "Tinos", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";[m
+[31m-  font-weight: 700;[m
+[31m-  line-height: 1.2;[m
+[31m-}[m
+[31m-[m
+[31m-h1, .h1 {[m
+[31m-  font-size: calc(1.375rem + 1.5vw);[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  h1, .h1 {[m
+[31m-    font-size: 2.5rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-h2, .h2 {[m
+[31m-  font-size: calc(1.325rem + 0.9vw);[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  h2, .h2 {[m
+[31m-    font-size: 2rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-h3, .h3 {[m
+[31m-  font-size: calc(1.3rem + 0.6vw);[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  h3, .h3 {[m
+[31m-    font-size: 1.75rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-h4, .h4 {[m
+[31m-  font-size: calc(1.275rem + 0.3vw);[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  h4, .h4 {[m
+[31m-    font-size: 1.5rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-h5, .h5 {[m
+[31m-  font-size: 1.25rem;[m
+[31m-}[m
+[31m-[m
+[31m-h6, .h6 {[m
+[31m-  font-size: 1rem;[m
+[31m-}[m
+[31m-[m
+[31m-p {[m
+[31m-  margin-top: 0;[m
+[31m-  margin-bottom: 1rem;[m
+[31m-}[m
+[31m-[m
+[31m-abbr[title] {[m
+[31m-  -webkit-text-decoration: underline dotted;[m
+[31m-          text-decoration: underline dotted;[m
+[31m-  cursor: help;[m
+[31m-  -webkit-text-decoration-skip-ink: none;[m
+[31m-          text-decoration-skip-ink: none;[m
+[31m-}[m
+[31m-[m
+[31m-address {[m
+[31m-  margin-bottom: 1rem;[m
+[31m-  font-style: normal;[m
+[31m-  line-height: inherit;[m
+[31m-}[m
+[31m-[m
+[31m-ol,[m
+[31m-ul {[m
+[31m-  padding-left: 2rem;[m
+[31m-}[m
+[31m-[m
+[31m-ol,[m
+[31m-ul,[m
+[31m-dl {[m
+[31m-  margin-top: 0;[m
+[31m-  margin-bottom: 1rem;[m
+[31m-}[m
+[31m-[m
+[31m-ol ol,[m
+[31m-ul ul,[m
+[31m-ol ul,[m
+[31m-ul ol {[m
+[31m-  margin-bottom: 0;[m
+[31m-}[m
+[31m-[m
+[31m-dt {[m
+[31m-  font-weight: 700;[m
+[31m-}[m
+[31m-[m
+[31m-dd {[m
+[31m-  margin-bottom: 0.5rem;[m
+[31m-  margin-left: 0;[m
+[31m-}[m
+[31m-[m
+[31m-blockquote {[m
+[31m-  margin: 0 0 1rem;[m
+[31m-}[m
+[31m-[m
+[31m-b,[m
+[31m-strong {[m
+[31m-  font-weight: bolder;[m
+[31m-}[m
+[31m-[m
+[31m-small, .small {[m
+[31m-  font-size: 0.875em;[m
+[31m-}[m
+[31m-[m
+[31m-mark, .mark {[m
+[31m-  padding: 0.1875em;[m
+[31m-  background-color: var(--bs-highlight-bg);[m
+[31m-}[m
+[31m-[m
+[31m-sub,[m
+[31m-sup {[m
+[31m-  position: relative;[m
+[31m-  font-size: 0.75em;[m
+[31m-  line-height: 0;[m
+[31m-  vertical-align: baseline;[m
+[31m-}[m
+[31m-[m
+[31m-sub {[m
+[31m-  bottom: -0.25em;[m
+[31m-}[m
+[31m-[m
+[31m-sup {[m
+[31m-  top: -0.5em;[m
+[31m-}[m
+[31m-[m
+[31m-a {[m
+[31m-  color: var(--bs-link-color);[m
+[31m-  text-decoration: underline;[m
+[31m-}[m
+[31m-a:hover {[m
+[31m-  color: var(--bs-link-hover-color);[m
+[31m-}[m
+[31m-[m
+[31m-a:not([href]):not([class]), a:not([href]):not([class]):hover {[m
+[31m-  color: inherit;[m
+[31m-  text-decoration: none;[m
+[31m-}[m
+[31m-[m
+[31m-pre,[m
+[31m-code,[m
+[31m-kbd,[m
+[31m-samp {[m
+[31m-  font-family: var(--bs-font-monospace);[m
+[31m-  font-size: 1em;[m
+[31m-}[m
+[31m-[m
+[31m-pre {[m
+[31m-  display: block;[m
+[31m-  margin-top: 0;[m
+[31m-  margin-bottom: 1rem;[m
+[31m-  overflow: auto;[m
+[31m-  font-size: 0.875em;[m
+[31m-}[m
+[31m-pre code {[m
+[31m-  font-size: inherit;[m
+[31m-  color: inherit;[m
+[31m-  word-break: normal;[m
+[31m-}[m
+[31m-[m
+[31m-code {[m
+[31m-  font-size: 0.875em;[m
+[31m-  color: var(--bs-code-color);[m
+[31m-  word-wrap: break-word;[m
+[31m-}[m
+[31m-a > code {[m
+[31m-  color: inherit;[m
+[31m-}[m
+[31m-[m
+[31m-kbd {[m
+[31m-  padding: 0.1875rem 0.375rem;[m
+[31m-  font-size: 0.875em;[m
+[31m-  color: var(--bs-body-bg);[m
+[31m-  background-color: var(--bs-body-color);[m
+[31m-  border-radius: 0.25rem;[m
+[31m-}[m
+[31m-kbd kbd {[m
+[31m-  padding: 0;[m
+[31m-  font-size: 1em;[m
+[31m-}[m
+[31m-[m
+[31m-figure {[m
+[31m-  margin: 0 0 1rem;[m
+[31m-}[m
+[31m-[m
+[31m-img,[m
+[31m-svg {[m
+[31m-  vertical-align: middle;[m
+[31m-}[m
+[31m-[m
+[31m-table {[m
+[31m-  caption-side: bottom;[m
+[31m-  border-collapse: collapse;[m
+[31m-}[m
+[31m-[m
+[31m-caption {[m
+[31m-  padding-top: 0.5rem;[m
+[31m-  padding-bottom: 0.5rem;[m
+[31m-  color: #6c757d;[m
+[31m-  text-align: left;[m
+[31m-}[m
+[31m-[m
+[31m-th {[m
+[31m-  text-align: inherit;[m
+[31m-  text-align: -webkit-match-parent;[m
+[31m-}[m
+[31m-[m
+[31m-thead,[m
+[31m-tbody,[m
+[31m-tfoot,[m
+[31m-tr,[m
+[31m-td,[m
+[31m-th {[m
+[31m-  border-color: inherit;[m
+[31m-  border-style: solid;[m
+[31m-  border-width: 0;[m
+[31m-}[m
+[31m-[m
+[31m-label {[m
+[31m-  display: inline-block;[m
+[31m-}[m
+[31m-[m
+[31m-button {[m
+[31m-  border-radius: 0;[m
+[31m-}[m
+[31m-[m
+[31m-button:focus:not(:focus-visible) {[m
+[31m-  outline: 0;[m
+[31m-}[m
+[31m-[m
+[31m-input,[m
+[31m-button,[m
+[31m-select,[m
+[31m-optgroup,[m
+[31m-textarea {[m
+[31m-  margin: 0;[m
+[31m-  font-family: inherit;[m
+[31m-  font-size: inherit;[m
+[31m-  line-height: inherit;[m
+[31m-}[m
+[31m-[m
+[31m-button,[m
+[31m-select {[m
+[31m-  text-transform: none;[m
+[31m-}[m
+[31m-[m
+[31m-[role=button] {[m
+[31m-  cursor: pointer;[m
+[31m-}[m
+[31m-[m
+[31m-select {[m
+[31m-  word-wrap: normal;[m
+[31m-}[m
+[31m-select:disabled {[m
+[31m-  opacity: 1;[m
+[31m-}[m
+[31m-[m
+[31m-[list]:not([type=date]):not([type=datetime-local]):not([type=month]):not([type=week]):not([type=time])::-webkit-calendar-picker-indicator {[m
+[31m-  display: none !important;[m
+[31m-}[m
+[31m-[m
+[31m-button,[m
+[31m-[type=button],[m
+[31m-[type=reset],[m
+[31m-[type=submit] {[m
+[31m-  -webkit-appearance: button;[m
+[31m-}[m
+[31m-button:not(:disabled),[m
+[31m-[type=button]:not(:disabled),[m
+[31m-[type=reset]:not(:disabled),[m
+[31m-[type=submit]:not(:disabled) {[m
+[31m-  cursor: pointer;[m
+[31m-}[m
+[31m-[m
+[31m-::-moz-focus-inner {[m
+[31m-  padding: 0;[m
+[31m-  border-style: none;[m
+[31m-}[m
+[31m-[m
+[31m-textarea {[m
+[31m-  resize: vertical;[m
+[31m-}[m
+[31m-[m
+[31m-fieldset {[m
+[31m-  min-width: 0;[m
+[31m-  padding: 0;[m
+[31m-  margin: 0;[m
+[31m-  border: 0;[m
+[31m-}[m
+[31m-[m
+[31m-legend {[m
+[31m-  float: left;[m
+[31m-  width: 100%;[m
+[31m-  padding: 0;[m
+[31m-  margin-bottom: 0.5rem;[m
+[31m-  font-size: calc(1.275rem + 0.3vw);[m
+[31m-  line-height: inherit;[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  legend {[m
+[31m-    font-size: 1.5rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-legend + * {[m
+[31m-  clear: left;[m
+[31m-}[m
+[31m-[m
+[31m-::-webkit-datetime-edit-fields-wrapper,[m
+[31m-::-webkit-datetime-edit-text,[m
+[31m-::-webkit-datetime-edit-minute,[m
+[31m-::-webkit-datetime-edit-hour-field,[m
+[31m-::-webkit-datetime-edit-day-field,[m
+[31m-::-webkit-datetime-edit-month-field,[m
+[31m-::-webkit-datetime-edit-year-field {[m
+[31m-  padding: 0;[m
+[31m-}[m
+[31m-[m
+[31m-::-webkit-inner-spin-button {[m
+[31m-  height: auto;[m
+[31m-}[m
+[31m-[m
+[31m-[type=search] {[m
+[31m-  outline-offset: -2px;[m
+[31m-  -webkit-appearance: textfield;[m
+[31m-}[m
+[31m-[m
+[31m-/* rtl:raw:[m
+[31m-[type="tel"],[m
+[31m-[type="url"],[m
+[31m-[type="email"],[m
+[31m-[type="number"] {[m
+[31m-  direction: ltr;[m
+[31m-}[m
+[31m-*/[m
+[31m-::-webkit-search-decoration {[m
+[31m-  -webkit-appearance: none;[m
+[31m-}[m
+[31m-[m
+[31m-::-webkit-color-swatch-wrapper {[m
+[31m-  padding: 0;[m
+[31m-}[m
+[31m-[m
+[31m-::file-selector-button {[m
+[31m-  font: inherit;[m
+[31m-  -webkit-appearance: button;[m
+[31m-}[m
+[31m-[m
+[31m-output {[m
+[31m-  display: inline-block;[m
+[31m-}[m
+[31m-[m
+[31m-iframe {[m
+[31m-  border: 0;[m
+[31m-}[m
+[31m-[m
+[31m-summary {[m
+[31m-  display: list-item;[m
+[31m-  cursor: pointer;[m
+[31m-}[m
+[31m-[m
+[31m-progress {[m
+[31m-  vertical-align: baseline;[m
+[31m-}[m
+[31m-[m
+[31m-[hidden] {[m
+[31m-  display: none !important;[m
+[31m-}[m
+[31m-[m
+[31m-.lead {[m
+[31m-  font-size: 1.25rem;[m
+[31m-  font-weight: 300;[m
+[31m-}[m
+[31m-[m
+[31m-.display-1 {[m
+[31m-  font-size: calc(1.625rem + 4.5vw);[m
+[31m-  font-weight: 300;[m
+[31m-  line-height: 1.2;[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  .display-1 {[m
+[31m-    font-size: 5rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-.display-2 {[m
+[31m-  font-size: calc(1.575rem + 3.9vw);[m
+[31m-  font-weight: 300;[m
+[31m-  line-height: 1.2;[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  .display-2 {[m
+[31m-    font-size: 4.5rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-.display-3 {[m
+[31m-  font-size: calc(1.525rem + 3.3vw);[m
+[31m-  font-weight: 300;[m
+[31m-  line-height: 1.2;[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  .display-3 {[m
+[31m-    font-size: 4rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-.display-4 {[m
+[31m-  font-size: calc(1.475rem + 2.7vw);[m
+[31m-  font-weight: 300;[m
+[31m-  line-height: 1.2;[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  .display-4 {[m
+[31m-    font-size: 3.5rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-.display-5 {[m
+[31m-  font-size: calc(1.425rem + 2.1vw);[m
+[31m-  font-weight: 300;[m
+[31m-  line-height: 1.2;[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  .display-5 {[m
+[31m-    font-size: 3rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-.display-6 {[m
+[31m-  font-size: calc(1.375rem + 1.5vw);[m
+[31m-  font-weight: 300;[m
+[31m-  line-height: 1.2;[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  .display-6 {[m
+[31m-    font-size: 2.5rem;[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-.list-unstyled {[m
+[31m-  padding-left: 0;[m
+[31m-  list-style: none;[m
+[31m-}[m
+[31m-[m
+[31m-.list-inline {[m
+[31m-  padding-left: 0;[m
+[31m-  list-style: none;[m
+[31m-}[m
+[31m-[m
+[31m-.list-inline-item {[m
+[31m-  display: inline-block;[m
+[31m-}[m
+[31m-.list-inline-item:not(:last-child) {[m
+[31m-  margin-right: 0.5rem;[m
+[31m-}[m
+[31m-[m
+[31m-.initialism {[m
+[31m-  font-size: 0.875em;[m
+[31m-  text-transform: uppercase;[m
+[31m-}[m
+[31m-[m
+[31m-.blockquote {[m
+[31m-  margin-bottom: 1rem;[m
+[31m-  font-size: 1.25rem;[m
+[31m-}[m
+[31m-.blockquote > :last-child {[m
+[31m-  margin-bottom: 0;[m
+[31m-}[m
+[31m-[m
+[31m-.blockquote-footer {[m
+[31m-  margin-top: -1rem;[m
+[31m-  margin-bottom: 1rem;[m
+[31m-  font-size: 0.875em;[m
+[31m-  color: #6c757d;[m
+[31m-}[m
+[31m-.blockquote-footer::before {[m
+[31m-  content: "— ";[m
+[31m-}[m
+[31m-[m
+[31m-.img-fluid {[m
+[31m-  max-width: 100%;[m
+[31m-  height: auto;[m
+[31m-}[m
+[31m-[m
+[31m-.img-thumbnail {[m
+[31m-  padding: 0.25rem;[m
+[31m-  background-color: #fff;[m
+[31m-  border: 1px solid var(--bs-border-color);[m
+[31m-  border-radius: 0.375rem;[m
+[31m-  max-width: 100%;[m
+[31m-  height: auto;[m
+[31m-}[m
+[31m-[m
+[31m-.figure {[m
+[31m-  display: inline-block;[m
+[31m-}[m
+[31m-[m
+[31m-.figure-img {[m
+[31m-  margin-bottom: 0.5rem;[m
+[31m-  line-height: 1;[m
+[31m-}[m
+[31m-[m
+[31m-.figure-caption {[m
+[31m-  font-size: 0.875em;[m
+[31m-  color: #6c757d;[m
+[31m-}[m
+[31m-[m
+[31m-.container,[m
+[31m-.container-fluid,[m
+[31m-.container-xxl,[m
+[31m-.container-xl,[m
+[31m-.container-lg,[m
+[31m-.container-md,[m
+[31m-.container-sm {[m
+[31m-  --bs-gutter-x: 1.5rem;[m
+[31m-  --bs-gutter-y: 0;[m
+[31m-  width: 100%;[m
+[31m-  padding-right: calc(var(--bs-gutter-x) * 0.5);[m
+[31m-  padding-left: calc(var(--bs-gutter-x) * 0.5);[m
+[31m-  margin-right: auto;[m
+[31m-  margin-left: auto;[m
+[31m-}[m
+[31m-[m
+[31m-@media (min-width: 576px) {[m
+[31m-  .container-sm, .container {[m
+[31m-    max-width: 540px;[m
+[31m-  }[m
+[31m-}[m
+[31m-@media (min-width: 768px) {[m
+[31m-  .container-md, .container-sm, .container {[m
+[31m-    max-width: 720px;[m
+[31m-  }[m
+[31m-}[m
+[31m-@media (min-width: 992px) {[m
+[31m-  .container-lg, .container-md, .container-sm, .container {[m
+[31m-    max-width: 960px;[m
+[31m-  }[m
+[31m-}[m
+[31m-@media (min-width: 1200px) {[m
+[31m-  .container-xl, .container-lg, .container-md, .container-sm, .container {[m
+[31m-    max-width: 1140px;[m
+[31m-  }[m
+[31m-}[m
+[31m-@media (min-width: 1400px) {[m
+[31m-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {[m
+[31m-    max-width: 1320px;[m
+[31m-  }[m
+[31m-}[m
+[31m-.row {[m
+[31m-  --bs-gutter-x: 1.5rem;[m
+[31m-  --bs-gutter-y: 0;[m
+[31m-  display: flex;[m
+[31m-  flex-wrap: wrap;[m
+[31m-  margin-top: calc(-1 * var(--bs-gutter-y));[m
+[31m-  margin-right: calc(-0.5 * var(--bs-gutter-x));[m
+[31m-  margin-left: calc(-0.5 * var(--bs-gutter-x));[m
+[31m-}[m
+[31m-.row > * {[m
+[31m-  flex-shrink: 0;[m
+[31m-  width: 100%;[m
+[31m-  max-width: 100%;[m
+[31m-  padding-right: calc(var(--bs-gutter-x) * 0.5);[m
+[31m-  padding-left: calc(var(--bs-gutter-x) * 0.5);[m
+[31m-  margin-top: var(--bs-gutter-y);[m
+[31m-}[m
+[31m-[m
+[31m-.col {[m
+[31m-  flex: 1 0 0%;[m
+[31m-}[m
+[31m-[m
+[31m-.row-cols-auto > * {[m
+[31m-  flex: 0 0 auto;[m
+[31m-  width: auto;[m
+[31m-}[m
+[31m-[m
+[31m-.row-cols-1 > * {[m
+[31m-  flex: 0 0 auto;[m
+[31m-  width: 100%;[m
+[31m-}[m
+[31m-[m
+[31m-.row-cols-2 > * {[m
+[31m-  flex: 0 0 auto;[m
+[31m-  width: 50%;[m
+[31m-}[m
+[31m-[m
+[31m-.row-cols-3 > * {[m
+[31
