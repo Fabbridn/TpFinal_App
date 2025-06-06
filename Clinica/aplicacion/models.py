@@ -43,8 +43,6 @@ class Habitacion(models.Model):
     def __str__(self):
         return f"Habitación {self.numero} - Tipo: {self.tipo} - {'Disponible' if self.disponible else 'Ocupada'}"
 
-
-
 class Turno(models.Model):
     class Meta:
         verbose_name = "Turno"
@@ -67,7 +65,6 @@ class Turno(models.Model):
     def __str__(self):
         return f"Turno con {self.doctor} para {self.paciente} el {self.fecha_turno.strftime('%d-%m-%Y %H:%M')}"
 
-    
 class Contacto(models.Model):
     nombre = models.CharField(max_length=100)
     email = models.EmailField()
@@ -82,36 +79,3 @@ class Nosotros(models.Model):
     def __str__(self):
         return f"Nosotros: {self.descripcion[:50]}..."  # Mostrar solo los primeros 50 caracteres
 
-class Inicio(models.Model):
-    titulo = models.CharField(max_length=200)
-    contenido = models.TextField()
-
-    def __str__(self):
-        return f"Inicio: {self.titulo}"  # Mostrar el título del inicio
-
-class Index(models.Model):
-    titulo = models.CharField(max_length=200)
-    contenido = models.TextField()
-
-    def __str__(self):
-        return f"Index: {self.titulo}"  # Mostrar el título del index
-
-class Login(models.Model): 
-    username = models.CharField(max_length=150)
-    password = models.CharField(max_length=128)
-
-    def __str__(self):
-        return f"Login: {self.username}"  # Mostrar el nombre de usuario del login
-    
-class Logout(models.Model):
-    username = models.CharField(max_length=150)
-
-    def __str__(self):
-        return f"Logout: {self.username}"  # Mostrar el nombre de usuario del logout
-
-class Admin(models.Model):
-    username = models.CharField(max_length=150)
-    password = models.CharField(max_length=128)
-
-    def __str__(self):
-        return f"Admin: {self.username}"  # Mostrar el nombre de usuario del admin

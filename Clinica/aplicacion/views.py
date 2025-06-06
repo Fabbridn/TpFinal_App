@@ -4,10 +4,6 @@ from .models import *
 from . forms import *
 
 
-def inicio(request):
-    return render(request, "aplicacion/inicio.html")
-
-
 def Agregar_Doctor(request):
     if request.method == "POST":
         form = DoctorForm(request.POST)
@@ -94,29 +90,3 @@ def nosotros(request):
         # Aquí podrías guardar el mensaje en la base de datos o enviar un correo
         print(f"Nombre: {nombre}, Email: {email}, Mensaje: {mensaje}")
     return render(request, "aplicacion/nosotros.html")
-
-def login(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        # Aquí podrías verificar las credenciales del usuario
-        if username == "admin" and password == "admin":  # Ejemplo simple de autenticación
-            return render(request, "aplicacion/admin.html")
-        else:
-            error_message = "Credenciales incorrectas"
-            return render(request, "aplicacion/login.html", {"error": error_message})
-
-def logout(request):
-    # Aquí podrías manejar la lógica de cierre de sesión, como limpiar la sesión del usuario
-    if request.method == "POST":
-        # Lógica de cierre de sesión
-        pass
-    return render(request, "aplicacion/logout.html")
-
-def admin(request):
-    # Aquí podrías manejar la lógica de administración, como mostrar estadísticas o gestionar usuarios
-    if request.method == "POST":
-        # Lógica de administración
-        pass
-    return render(request, "aplicacion/admin.html")
-
