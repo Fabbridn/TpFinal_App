@@ -1,0 +1,14 @@
+{% extends "aplicacion/index.html" %}
+
+{% block title %}Registrarse{% endblock %}
+
+
+{% block content %}
+<form method="post">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Registrarse">
+    </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "aplicacion/index.html" %}
+
+{% block title %}Agregar Turno{% endblock %}
+
+{% block header %}
+    <h1>Agregar Turno</h1>
+{% endblock %}
+<br>
+<br>
+<br>
+{% load static %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar</button>
+    </form>
+{% endblock %}
+
+
+
+
+
+
+

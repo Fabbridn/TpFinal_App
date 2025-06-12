@@ -1,0 +1,38 @@
+
+{% extends 'aplicacion/index.html' %}
+{% block header %}
+    <h1>Lista de Turnos</h1>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<br><br><br>
+<div class="container">
+    <h2>Lista de Turnos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Paciente</th>
+                <th>Doctor</th>
+                <th>Fecha y Hora</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turno in turno_list %}
+            <tr>
+                <td>{{ turno.id }}</td>
+                <td>{{ turno.paciente }}</td>
+                <td>{{ turno.doctor }}</td>
+                <td>{{ turno.fecha_turno }}</td>
+                <td>{{ turno.estado }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br><br><br>
+{% endblock %}
+

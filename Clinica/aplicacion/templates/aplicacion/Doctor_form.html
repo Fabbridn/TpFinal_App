@@ -1,0 +1,59 @@
+{% extends "aplicacion/index.html" %}
+
+{% block title %}Agregar Especialista{% endblock %}
+
+{% block header %}
+    <h1>Agregar Doctor</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar</button>
+    </form>
+{% endblock %}
+
+{% block footer %}
+    <p>&copy; 2025 - MEDILAB - </p>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        // Aquí puedes agregar scripts específicos para esta página si es necesario
+    </script>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block extra_content %}
+    <p>Si necesita ayuda, contáctese con el administrador.</p>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="sidebar">
+        <h2>Opciones</h2>
+        <ul>
+            <li><a href="{% url 'aplicacion:Doctor_form' %}">Cargar Datos</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block navigation %}
+    <nav>
+        <ul>
+            <li><a href="{% url 'aplicacion:inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'aplicacion:Doctor_form' %}">Cargar Datos</a></li>
+        </ul>
+    </nav>
+{% endblock %}

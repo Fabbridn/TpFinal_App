@@ -15,9 +15,9 @@
         <button type="submit">Buscar</button>
     </form>
 
-    {% if doctores %}
+    {% if Buscar_Doctor %}
         <ul>
-            {% for doctor in doctores %}
+            {% for doctor in Buscar_Doctor %}
                 <li>{{ doctor.nombre }} - {{ doctor.apellido }} - {{ doctor.especialidad }}</li>
             {% endfor %}
         </ul>
@@ -52,22 +52,4 @@
 
 {% block extra_content %}
     <p>Si necesita ayuda, contáctese con el administrador.</p>
-{% endblock %}
-
-{% block sidebar %}
-    <div class="sidebar">
-        <h2>Opciones</h2>
-        <ul>
-            <li><a href="{% url 'clinica:Buscar_Doctor' %}">Buscar Doctor</a></li>
-        </ul>
-    </div>
-{% endblock %}
-
-{% block navigation %}
-    <nav>
-        <ul>
-            <li><a href="{% url 'clinica:inicio' %}">Inicio</a></li>
-            <li><a href="{% url 'clinica:Buscar_Doctor' %}">Buscar Doctor</a></li>
-        </ul>
-    </nav>
 {% endblock %}

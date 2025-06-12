@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import *
 
 admin.site.register(Doctor)
-admin.site.register(agregar_paciente)
+admin.site.register(Agregar_Paciente)
 admin.site.register(Habitacion)
 admin.site.register(Turno)
 admin.site.register(Contacto)

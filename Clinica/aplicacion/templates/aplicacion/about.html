@@ -1,0 +1,41 @@
+{% extends "aplicacion/index.html" %}
+
+{% block title %}Acerca de mí{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container my-5">
+
+<div class="row justify-content-center mb-4">
+    <div class="col-md-4 text-center">
+    <h1 class="mb-1">Fabricio NICOLAS</h1>
+    <p class="text-muted">Personal Militar de Fuerza Aérea Argentina</p>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-md-6">
+        <h3>Información Personal</h3>
+        <ul class="list-unstyled">
+            <li><strong>Edad:</strong> 37 años</li>
+            <li><strong>Ubicación:</strong> Buenos Aires, Argentina</li>
+            <li><strong>Email:</strong> <a href="mailto:fabriciodnicolas@gmail.com">fabriciodnicolas@gmail.com</a></li>
+        </ul>
+    </div>
+</div>
+
+    <div class="card shadow-sm mb-5">
+    <div class="card-body">
+    <h3 class="card-title">Resumen</h3>
+    <p class="card-text">
+        Soy nacido en Paraná (Entre Ríos), Argentina, y actualmente resido en Buenos Aires.
+        Desde 2009 formo parte de la Fuerza Aérea Argentina, donde he desempeñado diversas funciones en el área de recursos humanos.
+        Me gusta estar en constante aprendizaje y poder crecer cada día más.
+        Siempre estoy buscando algo nuevo para aprender, quiero saber de todo un poco, de chico me gustaba mucho la tecnología y por cuestiones de la vida me aleje, y bueno ahora estamos intentando retomar.
+        Soy una persona proactiva, muy detallista y cuando me comprometo con algo, hasta no terminar no lo dejo.
+    </p>
+    </div>
+</div>
+
+</div>
+{% endblock %}

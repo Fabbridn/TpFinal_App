@@ -2,19 +2,17 @@
 
 {% block title %}Agregar Paciente{% endblock %}
 
-{% block header %}
-    <h1>Agregar Paciente</h1>
-{% endblock %}
+{% block contenido %}
 
-{% block content %}
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Agregar</button>
+
     </form>
 {% endblock %}
 {% block footer %}
-    <p>&copy; 2025 - Clinica Modelo</p>
+    <p>&copy; 2025 - MEDILAB</p>
 {% endblock %}
 
 {% block scripts %}
@@ -55,7 +53,6 @@
 {% block navigation %}
     <nav>
         <ul>
-            <li><a href="{% url 'clinica:inicio' %}">Inicio</a></li>
             <li><a href="{% url 'clinica:agregar_paciente' %}">Agregar Paciente</a></li>        </ul>
     </nav>
 {% endblock %}
@@ -63,5 +60,4 @@
 {% block breadcrumbs %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'clinica:inicio' %}">Inicio</a></li>
             <li class="breadcrumb-item active" aria-current="page">Agregar Paciente</li>

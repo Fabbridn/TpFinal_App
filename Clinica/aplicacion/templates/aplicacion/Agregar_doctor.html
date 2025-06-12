@@ -1,10 +1,12 @@
 
-{% extends "index/Agregar_Doctor.html" %}
+{% extends "aplicacion/index.html" %}
 
-{% block title %}Agregar Doctor{% endblock %}
+{% load static %}
+{% load crispy_forms_tags %}
 
-{% block header %}
-    <h1>Agregar Doctor</h1>
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Agregar Doctor</title>
 {% endblock %}
 
 {% block content %}
@@ -16,7 +18,7 @@
 {% endblock %}
 
 {% block footer %}
-    <p>&copy; 2025 - Clinica Modelo</p>
+    <p>&copy; 2025 - MEDILAB </p>
 {% endblock %}
 
 {% block scripts %}

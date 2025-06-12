@@ -7,48 +7,54 @@
 {% endblock %}
 
 {% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu email" required>
-        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
-        <button type="submit">Enviar</button>
-    </form>
-{% endblock %}
+ <!--contact-->
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="ser-title">Contactenos</h2>
+          <hr class="botm-line">
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <h2>Informacion de Contacto</h2>
+          <div class="space"></div>
+          <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i> Av. San Martin 321<br> Parana, Entre Rios (3100) </p>
+          <div class="space"></div>
+          <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>info@medilab.com</p>
+          <div class="space"></div>
+          <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>+54 9 343 4123456</p>
+        </div>
+        <div class="col-md-8 col-sm-8 marb20">
+          <div class="contact-info">
+            <h3 class="cnt-ttl">¿Tienes alguna consulta? ¡O reserva una cita!</h3>
+            <div class="space"></div>
+            <div id="sendmessage">Su mensaje ha sido enviado. ¡Gracias!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" role="form" class="contactForm">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Por favor ingresa al menos 4 caracteres" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Tu Correo Electrónico" data-rule="email" data-msg="Por favor ingresa un correo electrónico válido" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Por favor ingresa al menos 8 caracteres de asunto" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required" data-msg="Por favor escribe algo" placeholder="Mensaje"></textarea>
+                <div class="validation"></div>
+              </div>
 
-{% block footer %}
-    <p>&copy; 2025 - Medilab - Todos los derechos reservados</p>
-{% endblock %}
-
-{% block scripts %}
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Formulario de contacto listo');
-        });
-    </script>
-{% endblock %}
-
-{% block styles %}
-    <style>
-        form {
-            max-width: 600px;
-            margin: auto;
-        }
-        button {
-            margin-top: 10px;
-        }
-    </style>
-{% endblock %}
-
-{% block extra_content %}
-    <p>Si necesita ayuda, contáctese con el administrador.</p>
-{% endblock %}
-
-{% block sidebar %}
-    <div class="sidebar">
-        <h2>Opciones</h2>
-        <ul>
-            <li><a href="{% url 'contacto' %}">Contacto</a></li>
-        </ul>
+              <div class="form-action">
+                <button type="submit" class="btn btn-form">Enviar Mensaje</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 {% endblock %}

@@ -40,7 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # Aplicaciones propias de la clínica
-    "aplicacion"
+    "aplicacion",
+    "Clinica",
+    # Aplicaciones de terceros
+    "messenger",
+    
+    
 ]
 
 MIDDLEWARE = [

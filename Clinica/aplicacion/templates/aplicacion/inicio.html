@@ -1,34 +1,153 @@
-<!--
 {% extends "aplicacion/index.html" %}
 
-{% block title %}Clinica Modelo{% endblock %}
-{% block header %}
-    <h1>Bienvenido a la Clinica Modelo</h1>
-    <p>Su salud, nuestra prioridad.</p>  
-
-{% endblock %}
-
 {% block content %}
-    <p>La mejor atención médica a su alcance.</p>
-    <p>Para buscar doctores, haga clic en el enlace de búsqueda.</p>
-{% endblock %}
+{% load static %}
 
-{% block content %}
-    <form method="GET">
-        <input type="text" name="Apellido" placeholder="Buscar por apellido">
-        <input type="text" name="especialidad" placeholder="Buscar por especialidad">
-        {% csrf_token %}
-        <button type="submit">Buscar</button>
-    </form>
-    {% if resultados %}
-        <ul>
-            {% for doctor in resultados %}
-                <li>{{ doctor.nombre }} - {{ doctor.apellido }} - {{ doctor.especialidad }}</li>
-            {% empty %}
-            {% if resultados is empty %}
-                <li>No se encontraron resultados.</li>
-            {% endif %}
-            {% endfor %}
-        </ul>
-    {% endif %}
+ 
+  <!--cta-->
+  <section id="cta-1" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="schedule-tab">
+          
+          <div class="col-md-6 col-sm-6">
+            <div class="medi-info">
+              <h4>En Caso de Emergencia</h4>
+              <p>Si necesitas atención médica urgente, nuestro equipo está disponible las 24 horas para brindarte asistencia inmediata. Contamos con profesionales especializados en emergencias y equipos de última tecnología para garantizar una respuesta rápida y eficiente.</p>
+              <p>📞 <strong>Teléfono de Emergencias:</strong> 0800-123-4567</p>
+              <p>📍 <strong>Ubicación:</strong> Av. San Martin 321 Parana, Entre Rios (3100)</p>
+              <p>🏥 <strong>Servicios de emergencia:</strong> Atención médica urgente, traslado en ambulancia, unidad de cuidados intensivos.</p>
+              <p>Tu bienestar es nuestra prioridad. En momentos críticos, estamos aquí para ayudarte.</p>
+
+
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 mt-boxy-3">
+            <div class="mt-boxy-color"></div>
+            <div class="time-info">
+              <h3>Días y Horarios de atención</h3>
+              <table style="margin: 8px 0px 0px;" border="1">
+                <tbody>
+                  <tr>
+                    <td>Lunes - Viernes</td>
+                    <td>7.00 - 20.00</td>
+                  </tr>
+                  <tr>
+                    <td>Sábado</td>
+                    <td>8.00 - 16.30</td>
+                  </tr>
+                  <tr>
+                    <td>Domingo</td>
+                    <td>9.30 - 15.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--cta-->
+  <!--about-->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="section-title">
+            <h2 class="head-title lg-line">MEDILAB <br>Tu sueño en atención Médica</h2>
+            <hr class="botm-line">
+            <p class="sec-para">En MEDILAB, hacemos realidad el sueño de una atención médica avanzada, accesible y personalizada. Con tecnología de vanguardia y un equipo de especialistas certificados, brindamos soluciones innovadoras para el cuidado de tu salud.</p>
+            <a href="" style="color: #0cb8b6; padding-top:10px;">Nuestro compromiso es ofrecer tratamientos efectivos, diagnóstico preciso y una experiencia de paciente única, combinando medicina de excelencia con un trato humano y cercano.</a>
+<p>Descubre todo lo que podemos hacer por ti. ¡Tu salud es nuestra prioridad!</p>
+          </div>
+        </div>
+        <div class="col-md-9 col-sm-8 col-xs-12">
+          <div style="visibility: visible;" class="col-sm-9 more-features-box">
+            <div class="more-features-box-text">
+              <div class="more-features-box-text-icon"> <i class="fa fa-angle-right" aria-hidden="true"></i> </div>
+              <div class="more-features-box-text-description">
+                <h3>Algo importante que debes saber.</h3>
+                <p>🔹 Compromiso con la salud: Estamos dedicados a brindar atención médica de calidad con un enfoque humano y personalizado. 🔹 Atención 24/7: Contamos con soporte médico las 24 horas, para urgencias y asesoramiento. 🔹 Especialistas certificados: Nuestro equipo está formado por profesionales altamente capacitados en diversas áreas de la medicina. 🔹 Servicios personalizados: Ofrecemos chequeos completos, seguimiento médico y atención premium sin esperas. 🔹 Tecnología avanzada: Utilizamos equipos de última generación para diagnósticos precisos y tratamientos efectivos. 🔹 Cuidado integral: Nos preocupamos por tu bienestar en todas las etapas, desde prevención hasta recuperación.
+                    Si hay algo más que quieras conocer, ¡estamos aquí para ayudarte!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+ 
+  <!--testimonial-->
+  <section id="testimonial" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="ser-title">"Mira lo que dicen nuestros pacientes"</h2>
+          <hr class="botm-line">
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="testi-details">
+            <!-- Paragraph -->
+            <p>"La atención en urgencias fue increíble. Actuaron rápido y con mucha profesionalidad. 100% recomendables."</p>
+          </div>
+          <div class="testi-info">
+            <!-- User Image -->
+            <a href="#"><img src="{% static 'img/thumb.png' %}" alt="" class="img-responsive"></a>
+            <!-- User Name -->
+            <h3>Francisco<span>Texas</span></h3>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="testi-details">
+            <!-- Paragraph -->
+            <p>"Gracias a la asesoría médica, pude mejorar mi salud y cambiar mis hábitos. Siempre están disponibles para ayudar."</p>
+          </div>
+          <div class="testi-info">
+            <!-- User Image -->
+            <a href="#"><img src="{% static 'img/thumb.png' %}" alt="" class="img-responsive"></a>
+            <!-- User Name -->
+            <h3>Ricardo<span>Benitez</span></h3>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="testi-details">
+            <!-- Paragraph -->
+            "El equipo médico es excepcional. Me sentí acompañado en cada etapa de mi tratamiento y la atención fue rápida y eficiente."</p>
+          </div>
+          <div class="testi-info">
+            <!-- User Image -->
+            <a href="#"><img src="{% static 'img/thumb.png' %}" alt="" class="img-responsive"></a>
+            <!-- User Name -->
+            <h3>Facundo<span>Fernandez</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ testimonial-->
+  <!--cta 2-->
+  <section id="cta-2" class="section-padding">
+    <div class="container">
+      <div class=" row">
+        <div class="col-md-2"></div>
+        <div class="text-right-md col-md-4 col-sm-4">
+          <h2 class="section-title white lg-line">« Unas palabras<br> sobre nosotros »</h2>
+        </div>
+        <div class="col-md-4 col-sm-5">
+          Somos una clínica comprometida con el bienestar y la salud de nuestros pacientes. Con años de experiencia en el sector, ofrecemos atención médica de calidad, con tecnología avanzada y un equipo de profesionales altamente capacitados.
+          Nuestra misión es brindar un servicio humano, accesible y eficiente, asegurando el cuidado integral de cada paciente. Nos especializamos en medicina preventiva, diagnósticos precisos y tratamientos personalizados.
+          Gracias a la confianza de nuestra comunidad, seguimos creciendo e innovando para ofrecer siempre lo mejor en atención médica.
+          Visítanos y descubre por qué somos tu mejor opción en salud.
+          <p class="text-right text-primary"><i>— Medilap Healthcare</i></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </section>
+  <!--cta-->
+ 
+ 
+
 {% endblock %}

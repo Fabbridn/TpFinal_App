@@ -1,0 +1,70 @@
+{% extends 'aplicacion/index.html' %}
+
+{% block titulo %}
+<h1>Listado de profesionales</h1>
+{% endblock titulo %}
+
+{%load static %}
+
+
+{% block content %}
+ <!--doctor team-->
+  <section id="doctor-team" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="ser-title">Conoce a nuestros Especialistas!</h2>
+          <hr class="botm-line">
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6">
+          <div class="thumbnail">
+            <img src="{% static 'img/doctor1.jpg' %}" alt="..." class="team-img">
+            <div class="caption">
+              <h3>Jessica Lopez</h3>
+              <p>Doctor</p>
+              <ul class="list-inline">
+                <li><a href="#"><i class="fa fa-google-plus"></i>jesilopez@medilab.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6">
+          <div class="thumbnail">
+            <img src="{% static 'img/doctor2.jpg' %}" alt="..." class="team-img">
+            <div class="caption">
+              <h3>Juan Rodriguez</h3>
+              <p>Doctor</p>
+              <ul class="list-inline">
+                <li><a href="#"><i class="fa fa-google-plus"></i>juanrodriguez@medilab.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6">
+          <div class="thumbnail">
+            <img src="{% static 'img/doctor3.jpg' %}" alt="..." class="team-img">
+            <div class="caption">
+              <h3>Amanda Denyl</h3>
+              <p>Doctor</p>
+              <ul class="list-inline">
+                <li><a href="#"><i class="fa fa-google-plus"></i>amanda@medilab.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6">
+          <div class="thumbnail">
+            <img src="{% static 'img/doctor4.jpg' %}" alt="..." class="team-img">
+            <div class="caption">
+              <h3>Jason Davis</h3>
+              <p>Doctor</p>
+              <ul class="list-inline"></ul>
+              <li><a href="#"><i class="fa fa-google-plus"></i>jason@medilab.com</a></li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ doctor team-->
+{% endblock %}
